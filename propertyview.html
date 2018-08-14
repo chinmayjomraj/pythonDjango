@@ -1,0 +1,182 @@
+{% extends 'homesapp/base.html'%}
+{% block body%}
+
+<html>
+    <head>
+            <style>
+                    /* Set the size of the div element that contains the map */
+                   #map {
+                     height: 400px;  /* The height is 400 pixels */
+                     width: 100%;  /* The width is the width of the web page */
+                    }
+                 </style>
+
+
+    </head>
+<body>
+
+<div class = "row">
+    <div class = "col-md-1">
+        </div>
+
+
+        <div class ="col-md-3">
+            <div class ="thumbnail">
+                <img src ="{{property.image_url}}" height = "420" width = "420">
+                <div class ="caption">
+                    <p>{{property.property_name}}</p>
+                    </div>
+                 </div>
+                 </div>
+
+
+          <div class = "col-md-8">
+              <div class = "container">
+                  <div class = "panel-group">
+                      <div class= "panel panel-primary">
+                          <div class = "panel-heading">Property details</div>
+                          <div class ="panel-body">
+                              <table class= "table">
+                                  <tbody>
+
+                                    <tr>
+                                          <td>
+
+                                            <label><b>AREA SOFT</b></label>
+                                          </td>
+
+
+                                          <td>
+                                              {{property.area}}
+                                            </td>
+                                        </tr>
+
+
+
+                                        <tr>
+                                                <td>
+      
+                                                  <label><b>PRICE</b></label>
+                                                </td>
+      
+      
+                                                <td>
+                                                    {{property.price}}
+                                                  </td>
+                                        </tr>
+
+
+                                        <tr>
+                                                <td>
+      
+                                                  <label><b>AGE</b></label>
+                                                </td>
+      
+      
+                                                <td>
+                                                    {{property.age}}
+                                                  </td>
+                                              </tr>
+
+
+                                              <tr>
+                                                    <td>
+          
+                                                      <label><b>DIRECTION</b></label>
+                                                    </td>
+          
+          
+                                                    <td>
+                                                        {{property.direction}}
+                                                      </td>
+                                                  </tr>
+
+
+                                                  <tr>
+                                                        <td>
+              
+                                                          <label><b>NO OF FLOORS</b></label>
+                                                        </td>
+              
+              
+                                                        <td>
+                                                            {{property.floor}}
+                                                          </td>
+                                                      </tr>
+
+
+                                                      <tr>
+                                                            <td>
+                  
+                                                              <label><b>ADDRESS</b></label>
+                                                            </td>
+                  
+                  
+                                                            <td>
+                                                                {{property.postadd}}
+                                                              </td>
+                                                          </tr>
+
+
+
+
+                                  </tbody>
+
+
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          
+
+                          <div class = "col-md-8">
+
+
+                          <div class = "thumbnail">
+                              <h3>Location</h3>
+
+
+                              </div>
+                          </div>
+                          
+       <div class= "col-md-8">
+           <div class ="thumbnail">
+               <h3>LOCATION</h3>
+
+
+               <div id="map"></div>
+               <script>
+           // Initialize and add the map
+           function initMap() {
+             // The location of Uluru
+             var uluru = {lat: -25.344, lng: 131.036};
+             // The map, centered at Uluru
+             var map = new google.maps.Map(
+                 document.getElementById('map'), {zoom: 4, center: uluru});
+             // The marker, positioned at Uluru
+             var marker = new google.maps.Marker({position: uluru, map: map});
+           }
+               </script>
+               <!--Load the API from the specified URL
+               * The async attribute allows the browser to render the page while the API loads
+               * The key parameter will contain your own API key (which is not needed for this tutorial)
+               * The callback parameter executes the initMap() function
+               -->
+               <script async defer
+               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClt2hb5DDW38QI_zlyV04HVceogeOa1b8&callback=initMap">
+                </script>
+
+<!-- AIzaSyClt2hb5DDW38QI_zlyV04HVceogeOa1b8  -->
+
+            </div>
+            </div>
+
+</body>
+
+</html>
+
+<!-- {{property.property_name}}<br>
+{{property.area}} -->
+
+{% endblock %}
